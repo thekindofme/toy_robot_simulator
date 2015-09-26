@@ -125,13 +125,25 @@ RSpec.describe ToyRobotSimulator::Robot do
 
   describe '#report'  do
     context 'after initial PLACE command' do
-      it 'announces X'
-      it 'announces Y'
-      it 'announces facing direction'
+      before { subject.place ToyRobotSimulator::Position.new(4,3),:west }
+
+      it 'announces X' do
+        expect(subject.report).to match /X:4/
+      end
+
+      it 'announces Y' do
+        expect(subject.report).to match /Y:3/
+      end
+
+      it 'announces facing direction' do
+        expect(subject.report).to match /F:west/
+      end
     end
 
     context 'before initial PLACE command' do
-      it 'announces uninitialized state'
+      it 'announces uninitialized state' do
+        expect(subject.report).to eq(ToyRobotSimulator::Robot::UNINITIALIZED_MSG)
+      end
     end
   end
 end

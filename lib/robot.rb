@@ -2,6 +2,7 @@ require 'position'
 
 module ToyRobotSimulator
   class Robot
+    UNINITIALIZED_MSG = 'not placed on the board yet'
     attr_accessor :position, :direction
 
     def initialize table_top
@@ -29,6 +30,11 @@ module ToyRobotSimulator
     def turn_right
       return false unless initial_placement_done?
       self.direction = after_right_turn_direction
+    end
+
+    def report
+      return 'not placed on the board yet' unless initial_placement_done?
+      "X:#{position.x} Y:#{position.y} F:#{direction}"
     end
 
     private
