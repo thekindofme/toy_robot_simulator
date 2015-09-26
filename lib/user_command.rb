@@ -9,11 +9,7 @@ module ToyRobotSimulator
     end
 
     def execute
-      if data
-        robot.send verb, position, direction
-      else
-        robot.send verb
-      end
+      robot.send(verb, (data ? [position, direction] : nil))
     end
 
     private
