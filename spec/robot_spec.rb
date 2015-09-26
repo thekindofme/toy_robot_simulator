@@ -1,17 +1,40 @@
 require './lib/robot'
+require './lib/table_top'
 
 RSpec.describe ToyRobotSimulator::Robot do
+  subject { ToyRobotSimulator::Robot.new ToyRobotSimulator::TableTop.new(5,5) }
+
   describe '#place' do
     context 'valid' do
-      it 'sets X'
-      it 'sets Y'
-      it 'sets facing direction'
+      before { subject.place 0,0,:north }
+
+      it 'sets X' do
+        expect(subject.position_x).to eq 0
+      end
+
+      it 'sets Y' do
+        expect(subject.position_y).to eq 0
+      end
+
+      it 'sets facing direction' do
+        expect(subject.direction).to eq :north
+      end
     end
 
     context 'invalid' do
-      it 'does not set X'
-      it 'does not set Y'
-      it 'does not set facing direction'
+      before { subject.place 3,6,:south }
+
+      it 'does not set X'  do
+        expect(subject.position_x).to be nil 
+      end
+
+      it 'does not set Y' do
+        expect(subject.position_y).to be nil
+      end
+
+      it 'does not set facing direction' do
+        expect(subject.direction).to be nil
+      end
     end
   end
 
