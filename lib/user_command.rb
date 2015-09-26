@@ -9,13 +9,17 @@ module ToyRobotSimulator
     end
 
     def execute
-      robot.send verb, position, direction
+      if data
+        robot.send verb, position, direction
+      else
+        robot.send verb
+      end
     end
 
     private
     attr_accessor :robot
     def verb
-      command_string.split(/ /).first.downcase.to_sym
+      split_verb_and_data.first.downcase.to_sym
     end
 
     def position
@@ -27,7 +31,12 @@ module ToyRobotSimulator
     end
 
     def data
-      command_string.split(/ /)[1].split(/,/)
+      return nil if split_verb_and_data.size < 2
+      split_verb_and_data[1].split(/,/)
+    end
+
+    def split_verb_and_data
+      command_string.split(/ /)
     end
   end
 

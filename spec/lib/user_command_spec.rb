@@ -17,5 +17,14 @@ RSpec.describe ToyRobotSimulator::UserCommand do
         subject.execute
       end
     end
+
+    context 'command => MOVE' do
+      subject { ToyRobotSimulator::UserCommand.new(robot, 'MOVE') }
+
+      it 'calls move on robot' do
+        expect(robot).to receive(:move)
+        subject.execute
+      end
+    end
   end
 end
