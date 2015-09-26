@@ -37,17 +37,33 @@ RSpec.describe ToyRobotSimulator::Robot do
 
   describe '#move' do
     context 'after initial PLACE command' do
+
       context 'valid' do
-        it 'moves one unit forward in the set direction'
+        before { subject.place ToyRobotSimulator::Position.new(2,3),:north }
+
+        it 'moves one unit forward in the set direction' do
+          subject.move
+          expect(subject.position.x).to eq(2)
+          expect(subject.position.y).to eq(4)
+        end
       end
 
       context 'invalid' do
-        it 'does not move'
+        before { subject.place ToyRobotSimulator::Position.new(2,4),:north }
+
+        it 'does not move' do
+          subject.move
+          expect(subject.position.x).to eq(2)
+          expect(subject.position.y).to eq(4)
+        end
       end
     end
 
     context 'before initial PLACE command' do
-      it 'does not move'
+      it 'does not move' do
+        subject.move
+        expect(subject.position).to be nil
+      end
     end
   end
 
