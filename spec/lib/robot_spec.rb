@@ -67,29 +67,29 @@ RSpec.describe ToyRobotSimulator::Robot do
     end
   end
 
-  describe '#turn_left' do
+  describe '#left' do
     context 'after initial PLACE command' do
       before { subject.place ToyRobotSimulator::Position.new(2,3),:east }
 
       it 'rotates 90 degrees to the left' do
-        subject.turn_left
+        subject.left
         expect(subject.direction).to eq(:north)
       end
 
       it 'does not move' do
-        subject.turn_left
+        subject.left
         expect(subject.position).to eq(ToyRobotSimulator::Position.new(2,3))
       end
     end
 
     context 'before initial PLACE command' do
       it 'does not rotate' do
-        subject.turn_left
+        subject.left
         expect(subject.direction).to eq(nil)
       end
 
       it 'does not move' do
-        subject.turn_left
+        subject.left
         expect(subject.position).to eq(nil)
       end
     end

@@ -21,7 +21,7 @@ module ToyRobotSimulator
       self.position = after_move_position
     end
 
-    def turn_left
+    def left
       return false unless initial_placement_done?
       self.direction = after_left_turn_direction
     end
