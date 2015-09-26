@@ -15,11 +15,11 @@ module ToyRobotSimulator
 
     private
     def valid_position_x? position
-      position.x.between? 0,width
+      position.x.between? 0,width-1
     end
 
     def valid_position_y? position
-      position.y.between? 0, height
+      position.y.between? 0, height-1
     end
   end
 end
