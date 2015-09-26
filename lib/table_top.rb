@@ -5,8 +5,7 @@ module ToyRobotSimulator
     attr_accessor :width, :height
 
     def initialize width, height
-      self.width = width
-      self.height = height
+      self.width, self.height = width, height
     end
 
     def valid_position? position

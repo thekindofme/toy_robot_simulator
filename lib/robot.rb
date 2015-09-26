@@ -12,8 +12,7 @@ module ToyRobotSimulator
     def place position,direction
       return false unless table_top.valid_position? position
 
-      self.position = position
-      self.direction = direction
+      self.position, self.direction = position, direction
     end
 
     def move
