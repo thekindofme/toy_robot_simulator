@@ -1,3 +1,5 @@
+require 'position'
+
 module ToyRobotSimulator
   class TableTop
     attr_accessor :width, :height
@@ -7,17 +9,17 @@ module ToyRobotSimulator
       self.height = height
     end
 
-    def valid_position? position_x, position_y
-      valid_position_x?(position_x) && valid_position_y?(position_y)
+    def valid_position? position
+      valid_position_x?(position) && valid_position_y?(position)
     end
 
     private
-    def valid_position_x? position_x
-      position_x.between? 0,width
+    def valid_position_x? position
+      position.x.between? 0,width
     end
 
-    def valid_position_y? position_y
-      position_y.between? 0, height
+    def valid_position_y? position
+      position.y.between? 0, height
     end
   end
 end

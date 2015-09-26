@@ -1,16 +1,17 @@
+require 'position'
+
 module ToyRobotSimulator
   class Robot
-    attr_accessor :position_x, :position_y, :direction
+    attr_accessor :position, :direction
 
     def initialize table_top
       self.table_top = table_top
     end
 
-    def place position_x,position_y,direction
-      return false unless table_top.valid_position? position_x, position_y
+    def place position,direction
+      return false unless table_top.valid_position? position
 
-      self.position_x = position_x
-      self.position_y = position_y
+      self.position = position
       self.direction = direction
     end
 
