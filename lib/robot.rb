@@ -21,11 +21,29 @@ module ToyRobotSimulator
       self.position = after_move_position
     end
 
+    def turn_left
+      return false unless initial_placement_done?
+      self.direction = after_turn_direction
+    end
+
     private
     attr_accessor :table_top
 
     def initial_placement_done?
       !!position
+    end
+
+    def after_turn_direction
+      case direction
+        when :north
+          :west
+        when :south
+          :east
+        when :east
+          :north
+        when :west
+          :south
+      end
     end
 
     def after_move_position
