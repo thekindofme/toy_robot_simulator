@@ -95,22 +95,31 @@ RSpec.describe ToyRobotSimulator::Robot do
     end
   end
 
-  describe '#right' do
+  describe '#turn_right' do
     context 'after initial PLACE command' do
-      context 'valid' do
-        it 'rotates 90 degrees to the right'
-        it 'does not move'
+      before { subject.place ToyRobotSimulator::Position.new(2,3),:south }
+
+      it 'rotates 90 degrees to the right' do
+        subject.turn_right
+        expect(subject.direction).to eq(:west)
       end
 
-      context 'invalid' do
-        it 'does not rotate'
-        it 'does not move'
+      it 'does not move' do
+        subject.turn_right
+        expect(subject.position).to eq(ToyRobotSimulator::Position.new(2,3))
       end
     end
 
     context 'before initial PLACE command' do
-      it 'does not rotate'
-      it 'does not move'
+      it 'does not rotate' do
+        subject.turn_right
+        expect(subject.direction).to eq(nil)
+      end
+
+      it 'does not move' do
+        subject.turn_right
+        expect(subject.position).to eq(nil)
+      end
     end
   end
 

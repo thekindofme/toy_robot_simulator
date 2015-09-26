@@ -26,6 +26,9 @@ module ToyRobotSimulator
       self.direction = after_left_turn_direction
     end
 
+    def turn_right
+      return false unless initial_placement_done?
+      self.direction = after_right_turn_direction
     end
 
     private
@@ -33,6 +36,19 @@ module ToyRobotSimulator
 
     def initial_placement_done?
       !!position
+    end
+
+    def after_right_turn_direction
+      case direction
+        when :north
+          :east
+        when :south
+          :west
+        when :east
+          :south
+        when :west
+          :north
+      end
     end
 
     def after_left_turn_direction
