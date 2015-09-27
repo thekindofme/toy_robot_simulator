@@ -7,7 +7,7 @@ module ToyRobotSimulator
     end
 
     def execute
-      robot.send(verb, (data ? [position, direction] : nil))
+      robot.send(verb, *(data ? [position, direction] : nil))
     end
 
     private
