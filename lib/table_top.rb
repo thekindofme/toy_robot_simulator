@@ -1,5 +1,3 @@
-require 'position'
-
 module ToyRobotSimulator
   class TableTop
     attr_accessor :width, :height

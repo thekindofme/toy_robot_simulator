@@ -1,3 +1,4 @@
+require './lib/position'
 require './lib/user_command'
 
 RSpec.describe ToyRobotSimulator::UserCommand do

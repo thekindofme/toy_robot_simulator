@@ -1,5 +1,3 @@
-require 'position'
-
 module ToyRobotSimulator
   class Robot
     UNINITIALIZED_MSG = 'not placed on the board yet'

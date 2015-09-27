@@ -1,5 +1,3 @@
-require 'position'
-
 module ToyRobotSimulator
   class UserCommand
     attr_accessor :command_string
