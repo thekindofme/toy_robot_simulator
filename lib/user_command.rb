@@ -17,7 +17,7 @@ module ToyRobotSimulator
     end
 
     def position
-      ToyRobotSimulator::Position.new data[0].to_i, data[1].to_i
+      Position.new data[0].to_i, data[1].to_i
     end
 
     def direction
