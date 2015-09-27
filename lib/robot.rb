@@ -33,7 +33,7 @@ module ToyRobotSimulator
 
     def report
       return 'not placed on the board yet' unless initial_placement_done?
-      "X:#{position.x} Y:#{position.y} F:#{direction}"
+      "#{position.x},#{position.y},#{direction.upcase}"
     end
 
     private

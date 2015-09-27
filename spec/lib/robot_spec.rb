@@ -127,16 +127,8 @@ RSpec.describe ToyRobotSimulator::Robot do
     context 'after initial PLACE command' do
       before { subject.place ToyRobotSimulator::Position.new(4,3),:west }
 
-      it 'announces X' do
-        expect(subject.report).to match /X:4/
-      end
-
-      it 'announces Y' do
-        expect(subject.report).to match /Y:3/
-      end
-
-      it 'announces facing direction' do
-        expect(subject.report).to match /F:west/
+      it 'return current position and direction in the proper format' do
+        expect(subject.report).to eq('4,3,WEST')
       end
     end
 
