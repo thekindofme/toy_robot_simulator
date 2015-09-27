@@ -44,5 +44,14 @@ RSpec.describe ToyRobotSimulator::UserCommand do
         subject.execute
       end
     end
+
+    context 'command => REPORT' do
+      subject { ToyRobotSimulator::UserCommand.new(robot, 'REPORT') }
+
+      it 'calls left on robot' do
+        expect(robot).to receive(:report)
+        subject.execute
+      end
+    end
   end
 end
