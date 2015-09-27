@@ -33,7 +33,16 @@ RSpec.describe ToyRobotSimulator::UserCommand do
       it 'calls left on robot' do
         expect(robot).to receive(:left)
         subject.execute
-      end 
+      end
+    end
+
+    context 'command => RIGHT' do
+      subject { ToyRobotSimulator::UserCommand.new(robot, 'RIGHT') }
+
+      it 'calls left on robot' do
+        expect(robot).to receive(:right)
+        subject.execute
+      end
     end
   end
 end
