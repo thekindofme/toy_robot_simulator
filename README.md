@@ -42,7 +42,7 @@ REPORT
 The toy robot must not fall off the table during movement. This also includes the ini8al placement of the toy robot.
 Any move that would cause the robot to fall must be ignored.
 
-#Example Input and Output
+##Example Input and Output
 
 ###a
 
