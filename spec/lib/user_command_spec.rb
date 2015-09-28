@@ -1,4 +1,5 @@
 require './lib/position'
+require './lib/direction'
 require './lib/user_command'
 
 RSpec.describe ToyRobotSimulator::UserCommand do
@@ -12,7 +13,7 @@ RSpec.describe ToyRobotSimulator::UserCommand do
         expect(robot).to receive(:place) do |position, direction|
           expect(position.x).to eq(0)
           expect(position.y).to eq(0)
-          expect(direction).to eq(:north)
+          expect(direction).to eq(ToyRobotSimulator::North)
         end
 
         subject.execute

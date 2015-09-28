@@ -21,17 +21,17 @@ module ToyRobotSimulator
 
     def left
       return false unless initial_placement_done?
-      self.direction = after_left_turn_direction
+      self.direction = direction.after_left_turn_direction
     end
 
     def right
       return false unless initial_placement_done?
-      self.direction = after_right_turn_direction
+      self.direction = direction.after_right_turn_direction
     end
 
     def report
       return 'not placed on the board yet' unless initial_placement_done?
-      "#{position.x},#{position.y},#{direction.upcase}"
+      "#{position.x},#{position.y},#{direction}"
     end
 
     private
@@ -41,43 +41,8 @@ module ToyRobotSimulator
       !!position
     end
 
-    def after_right_turn_direction
-      case direction
-        when :north
-          :east
-        when :south
-          :west
-        when :east
-          :south
-        when :west
-          :north
-      end
-    end
-
-    def after_left_turn_direction
-      case direction
-        when :north
-          :west
-        when :south
-          :east
-        when :east
-          :north
-        when :west
-          :south
-      end
-    end
-
     def after_move_position
-      case direction
-      when :north
-        Position.new(position.x, position.y + 1)
-      when :south
-        Position.new(position.x, position.y - 1)
-      when :east
-        Position.new(position.x + 1, position.y)
-      when :west
-        Position.new(position.x - 1, position.y)
-      end
+      direction.after_move_position(position)
     end
   end
 end

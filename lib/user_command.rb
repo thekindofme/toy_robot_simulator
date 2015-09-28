@@ -21,7 +21,7 @@ module ToyRobotSimulator
     end
 
     def direction
-      data[2].downcase.to_sym
+      Direction.build(data[2])
     end
 
     def data

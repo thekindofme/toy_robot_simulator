@@ -2,6 +2,7 @@ require './lib/table_top'
 require './lib/robot'
 require './lib/cli'
 require './lib/position'
+require './lib/direction'
 require './lib/user_command'
 require './lib/system'
 
