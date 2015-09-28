@@ -1,6 +1,18 @@
 #Toy Robot Simulator
 
-##Description:
+##How to run
+```sh
+git clone git@github.com:thekindofme/toy_robot_simulator.git
+cd toy_robot_simulator
+bundle install
+ruby ./toy_robot_simulator.rb
+```
+Press ctrl+c to exit.
+
+##Dependencies
+Developed and tested on Ruby 2.2.0.
+
+##Description
 
 - The applica8on is a simula8on of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
 - There are no other obstruc8ons on the table surface.
